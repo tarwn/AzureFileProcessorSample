@@ -2,37 +2,56 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Processor_Core.Storage;
 
 namespace Processor_Core {
 	public class ItemStore {
 
-		public void AddNewItem(RawItem item) {
-			_rawBlob.Store(item);
-			_queue.Enqueue(item as ItemBase);
-			_table.Insert(item.ResourceId, item as ItemBase);
+		public static string RAW_BLOB_NAME = "RawItems";
+		public static string FINISHED_BLOB_NAME = "FinishedItems";
+		public static string QUEUE_NAME = "ToBeProcessed";
+		public static string TABLE_NAME = "Items";
+
+		ITableStore _table;
+		IBlobStore _rawBlob, _finishedBlob;
+		IQueueStore _queue;
+
+		public ItemStore(IStorageLocator storageLocator) {
+			_table = storageLocator.GetTable(TABLE_NAME);
+			_rawBlob = storageLocator.GetBlob(RAW_BLOB_NAME);
+			_finishedBlob = storageLocator.GetBlob(FINISHED_BLOB_NAME);
+			_queue = storageLocator.GetQueue(QUEUE_NAME);
+		}
+
+		public void AddNewItem(FullItem item) {
+			_rawBlob.Create(item.ResourceId, item.File);
+			_queue.Enqueue(item.AsSummary());
+			_table.Create(item.AsSummary());
 		}
 
 		public IEnumerable<ItemBase> GetUnprocessedList() {
-			// ?
-			return new List<ItemBase>();
+			return _table.GetUnprocessedItems();
 		}
 
 		public IEnumerable<ItemBase> GetProcessedList() {
 			// ?
-			return new List<ItemBase>();
+			return _table.GetProcessedItems();
 		}
 
-		public RawItem RetrieveForProcessing() {
-			var item = _queue.Dequeue() as ItemBase;
+		public FullItem RetrieveForProcessing() {
+			var item = _queue.Dequeue();
+			var rawItem = new FullItem(item);
 			if (item != null) {
-				return _blob.Get(item.ResourceId);
+				rawItem.File = _rawBlob.Retrieve(item.ResourceId);
 			}
+			return rawItem;
 		}
 
-		public void FinishProcessingItem(ProcessedItem item) {
-			_finishedBlob.Store(item);
-			_rawBlob.Remove(item.ResourceId);
-			_table.Update(item.ResourceId, item as ItemBase);
+		public void FinishProcessingItem(FullItem item) {
+			_finishedBlob.Create(item.ResourceId, item.File);
+			_rawBlob.Delete(item.ResourceId);
+			_table.Update(item.AsSummary());
 		}
 	}
 }
+

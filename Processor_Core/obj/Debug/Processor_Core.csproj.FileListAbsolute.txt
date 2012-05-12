@@ -1,0 +1,7 @@
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_Core\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_Core\bin\Debug\Processor_Core.dll
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_Core\bin\Debug\Processor_Core.pdb
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_Core\bin\Debug\Microsoft.WindowsAzure.StorageClient.dll
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_Core\bin\Debug\Microsoft.WindowsAzure.StorageClient.xml
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_Core\obj\Debug\Processor_Core.dll
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_Core\obj\Debug\Processor_Core.pdb

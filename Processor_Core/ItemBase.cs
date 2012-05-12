@@ -8,6 +8,27 @@ namespace Processor_Core {
 		public Guid ResourceId { get; set; }
 		public string FileName { get; set; }
 		public DateTime Received { get; set; }
-		public virtual bool IsProcessed { get; }
+		public bool IsProcessed { get; set; }
+
+		public ItemBase() { }
+		public ItemBase(ItemBase item) {
+			CopyFrom(item);
+		}
+
+		public void CopyFrom(ItemBase item) {
+				ResourceId = item.ResourceId;
+				FileName = item.FileName;
+				Received = item.Received;
+				IsProcessed = item.IsProcessed;
+		}
+
+		public ItemBase AsSummary() {
+			return new ItemBase() {
+				ResourceId = ResourceId,
+				FileName = FileName,
+				Received = Received,
+				IsProcessed = IsProcessed
+			};
+		}
 	}
 }

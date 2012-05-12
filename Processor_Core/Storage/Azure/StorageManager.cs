@@ -9,16 +9,11 @@ namespace Processor_Core.Storage.Azure {
 	public class StorageManager {
 		string _connectionString;	//RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString")
 
-		public ITableStore GetTable(string name) {
-			// Retrieve storage account from connection-string
+		public ITableStore GetTable(string tableName) {
 			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_connectionString);
-
-			// Create the table client
 			CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-			// Create the table if it doesn't exist
-			string tableName = "people";
 			tableClient.CreateTableIfNotExist(tableName);
+			return new TableStore(tableName);
 		}
 
 	}

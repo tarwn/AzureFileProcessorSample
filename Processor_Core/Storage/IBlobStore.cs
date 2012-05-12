@@ -6,5 +6,9 @@ using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;
 
 namespace Processor_Core.Storage {
-	public interface IBlobStore { }
+	public interface IBlobStore {
+		void Create(Guid resourceId, byte[] file);
+		byte[] Retrieve(Guid resourceId);
+		void Delete(Guid resourceId);
+	}
 }

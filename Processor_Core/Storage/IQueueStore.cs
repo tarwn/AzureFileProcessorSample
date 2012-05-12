@@ -6,5 +6,8 @@ using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;
 
 namespace Processor_Core.Storage {
-	public interface IQueueStore { }
+	public interface IQueueStore {
+		void Enqueue(ItemBase item);
+		ItemBase Dequeue();
+                                   }
 }

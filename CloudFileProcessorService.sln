@@ -5,6 +5,10 @@ Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CloudFileProcessorService",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processor_WebRole", "Processor_WebRole\Processor_WebRole.csproj", "{BB37AB25-956F-4E26-9B0A-CA100606C51E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processor_Core", "Processor_Core\Processor_Core.csproj", "{6C85EA3E-59DD-4F28-BAEF-AC1537EAF9D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processor_Core.Tests", "Processor_Core.Tests\Processor_Core.Tests.csproj", "{E4E5DA3E-415B-4932-8E76-9FBC8023078F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{BB37AB25-956F-4E26-9B0A-CA100606C51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB37AB25-956F-4E26-9B0A-CA100606C51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB37AB25-956F-4E26-9B0A-CA100606C51E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C85EA3E-59DD-4F28-BAEF-AC1537EAF9D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C85EA3E-59DD-4F28-BAEF-AC1537EAF9D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C85EA3E-59DD-4F28-BAEF-AC1537EAF9D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C85EA3E-59DD-4F28-BAEF-AC1537EAF9D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E5DA3E-415B-4932-8E76-9FBC8023078F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E5DA3E-415B-4932-8E76-9FBC8023078F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E5DA3E-415B-4932-8E76-9FBC8023078F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E5DA3E-415B-4932-8E76-9FBC8023078F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,8 +7,8 @@ using Microsoft.WindowsAzure.StorageClient;
 
 namespace Processor_Core.Storage {
 	public interface IStorageLocator {
-		public ITableStore GetTable(string name);
-		public IQueueStore GetQueue(string name);
-		public IBlobStore GetBlob(string name);
+		ITableStore GetTable(string name);
+		IQueueStore GetQueue(string name);
+		IBlobStore GetBlob(string name);
 	}
 }
