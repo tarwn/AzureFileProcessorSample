@@ -39,15 +39,17 @@ namespace Processor_Core {
 		}
 
 		public FullItem RetrieveForProcessing() {
+			FullItem rawItem = null;
+
 			var item = _queue.Dequeue();
-			var rawItem = new FullItem(item);
 			if (item != null) {
+				rawItem = new FullItem(item);
 				rawItem.File = _rawBlob.Retrieve(item.ResourceId);
 			}
 			return rawItem;
 		}
 
-		public void FinishProcessingItem(FullItem item) {
+		public void StoreFinishedItem(FullItem item) {
 			_finishedBlob.Create(item.ResourceId, item.File);
 			_rawBlob.Delete(item.ResourceId);
 			_table.Update(item.AsSummary());
