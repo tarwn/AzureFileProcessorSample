@@ -19,13 +19,13 @@ namespace Processor_WebRole.Controllers {
 		}
 
 		public ActionResult Index() {
-			ViewBag.Message = "Welcome to ASP.NET MVC!";
-
 			var store = new ItemStore(_storageLocator);
 			var model = new StatusViewModel() {
 				ProcessedItems = store.GetProcessedList(),
 				UnprocessedItems = store.GetUnprocessedList()
 			};
+
+			ViewData["file"] = TempData["file"];
 
 			return View(model);
 		}
@@ -42,9 +42,13 @@ namespace Processor_WebRole.Controllers {
 				item.ReadFileFromStream(file.InputStream);
 
 				new ItemStore(_storageLocator).AddNewItem(item);
+				TempData["file"] = file.FileName + " uploaded and queued for processing.";
+			}
+			else {
+				TempData["file"] = "Processor ignores empty files, sorry.";
 			}
 
-			return View();
+			return RedirectToAction("Index");
 		}
 	}
 }

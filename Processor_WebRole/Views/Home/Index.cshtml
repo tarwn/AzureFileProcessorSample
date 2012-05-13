@@ -4,6 +4,9 @@
 }
 
 <div class="FileArea">
+	@if (ViewData["file"] != null && !string.IsNullOrWhiteSpace(ViewData["file"].ToString())) { 
+		<div class="result">@ViewData["file"]</div>
+	}
 	@using (Html.BeginForm("AddFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 	{
 		<input type="file" name="file" id="file" />
