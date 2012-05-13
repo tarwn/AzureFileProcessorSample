@@ -4,6 +4,7 @@ C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\P
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\Microsoft.WindowsAzure.Diagnostics.dll
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\Microsoft.WindowsAzure.StorageClient.dll
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\Processor_Core.dll
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\System.Web.Helpers.dll
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\System.Web.Mvc.dll
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\System.Web.Providers.dll
@@ -11,6 +12,7 @@ C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\P
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\System.Web.WebPages.dll
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\Processor_Core.pdb
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\EntityFramework.xml
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\Microsoft.Web.Infrastructure.xml
 C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\Processor_WebRole\bin\Microsoft.WindowsAzure.Diagnostics.xml
