@@ -1,1 +1,0 @@
-C:\Users\Tarwn\Documents\Visual Studio 2010\Projects\CloudFileProcessorService\CloudFileProcessorService\bin\Debug\ServiceConfiguration.cscfg
