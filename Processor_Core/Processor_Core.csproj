@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemProcessor.cs" />
     <Compile Include="Storage\Azure\ItemBaseEntity.cs" />
     <Compile Include="Storage\Azure\TableStore.cs" />
     <Compile Include="Storage\IBlobStore.cs" />
