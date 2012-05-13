@@ -1,8 +1,32 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model Processor_WebRole.Models.StatusViewModel
+@{
+	ViewBag.Title = "Home Page";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<div class="FileArea">
+	@using (Html.BeginForm("AddFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+	{
+		<input type="file" name="file" />
+		<input type="submit" value="OK" />
+	}
+</div>
+
+<div class="ItemList">
+<h2>Unprocessed Items</h2>
+<table>
+<tr><th>Id</th><th>Name</th><th>Received</th></tr>
+@foreach (var item in Model.UnprocessedItems) { 
+	<tr><td>@item.ResourceId</td><td>@item.FileName</td><td>@item.Received</td></tr>
+}
+</table>
+</div>
+
+<div class="ItemList">
+<h2>Processed Items</h2>
+<table>
+<tr><th>Id</th><th>Name</th><th>Received</th></tr>
+@foreach (var item in Model.UnprocessedItems) { 
+	<tr><td>@item.ResourceId</td><td>@item.FileName</td><td>@item.Received</td></tr>
+}
+</table>
+</div>

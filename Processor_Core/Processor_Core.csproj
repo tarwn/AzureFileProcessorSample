@@ -34,6 +34,7 @@
     <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ItemProcessor.cs" />
+    <Compile Include="Storage\Azure\BlobStore.cs" />
     <Compile Include="Storage\Azure\ItemBaseEntity.cs" />
+    <Compile Include="Storage\Azure\QueueStore.cs" />
     <Compile Include="Storage\Azure\TableStore.cs" />
     <Compile Include="Storage\IBlobStore.cs" />
     <Compile Include="Storage\IQueueStore.cs" />
