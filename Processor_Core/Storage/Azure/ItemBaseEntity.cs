@@ -8,7 +8,7 @@ namespace Processor_Core.Storage.Azure {
 	public class ItemBaseEntity : TableServiceEntity 
 	{
 		public ItemBaseEntity(){}
-		public ItemBaseEntity(ItemBase item) : base(item.ResourceId.ToString(), item.FileName)
+		public ItemBaseEntity(ItemBase item) : base(item.IsProcessed ? "1" : "0", item.ResourceId.ToString())
 		{
 			ResourceId = item.ResourceId;
 			FileName = item.FileName;

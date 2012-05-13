@@ -21,33 +21,36 @@ namespace Processor_Core.Storage.Azure {
 			tableClient.CreateTableIfNotExist(_tableName);
 			TableServiceContext serviceContext = tableClient.GetDataServiceContext();
 			serviceContext.RetryPolicy = RetryPolicies.Retry(3, TimeSpan.FromSeconds(1));
+			serviceContext.IgnoreResourceNotFoundException = true;
 			return serviceContext;
 		}
 
 		public void Create(ItemBase item) {
 			TableServiceContext serviceContext = GetContext();
-			serviceContext.AddObject(_tableName, item);
+			serviceContext.AddObject(_tableName, new ItemBaseEntity(item));
 			serviceContext.SaveChangesWithRetries();
 		}
 
 		public void Update(ItemBase item) {
 			TableServiceContext serviceContext = GetContext();
-			serviceContext.UpdateObject(item);
+			serviceContext.UpdateObject(new ItemBaseEntity(item));
 			serviceContext.SaveChangesWithRetries();
 		}
 
 		public IEnumerable<ItemBase> GetUnprocessedItems() {
 			TableServiceContext serviceContext = GetContext();
-			return serviceContext.CreateQuery<ItemBase>(_tableName)
-								 .Where(ib => !ib.IsProcessed)
-								 .AsTableServiceQuery();
+			return serviceContext.CreateQuery<ItemBaseEntity>(_tableName)
+								 .Where(ib => ib.PartitionKey == "0")
+								 .AsTableServiceQuery()
+								 .Cast<ItemBase>();
 		}
 
 		public IEnumerable<ItemBase> GetProcessedItems() {
 			TableServiceContext serviceContext = GetContext();
-			return serviceContext.CreateQuery<ItemBase>(_tableName)
-								 .Where(ib => ib.IsProcessed)
-								 .AsTableServiceQuery();
+			return serviceContext.CreateQuery<ItemBaseEntity>(_tableName)
+								 .Where(ib => ib.PartitionKey == "1")
+								 .AsTableServiceQuery()
+								 .Cast<ItemBase>();
 		}
 	}
 }

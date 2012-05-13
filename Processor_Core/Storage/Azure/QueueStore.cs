@@ -13,7 +13,7 @@ namespace Processor_Core.Storage.Azure {
 		private CloudStorageAccount _storageAccount;
 
 		public QueueStore(CloudStorageAccount storageAccount, string queueName) {
-			_queueName = queueName;
+			_queueName = queueName.ToLower();
 			_storageAccount = storageAccount;
 		}
 

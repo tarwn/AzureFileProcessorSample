@@ -9,6 +9,10 @@ namespace Processor_Core.Storage.Azure {
 	public class StorageManager : IStorageLocator {
 		string _connectionString;	//RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString")
 
+		public StorageManager(string connectionString) {
+			_connectionString = connectionString;
+		}
+
 		public ITableStore GetTable(string tableName) {
 			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_connectionString);
 			return new TableStore(storageAccount, tableName);

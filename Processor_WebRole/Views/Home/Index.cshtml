@@ -6,7 +6,7 @@
 <div class="FileArea">
 	@using (Html.BeginForm("AddFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 	{
-		<input type="file" name="file" />
+		<input type="file" name="file" id="file" />
 		<input type="submit" value="OK" />
 	}
 </div>
@@ -25,7 +25,7 @@
 <h2>Processed Items</h2>
 <table>
 <tr><th>Id</th><th>Name</th><th>Received</th></tr>
-@foreach (var item in Model.UnprocessedItems) { 
+@foreach (var item in Model.ProcessedItems) { 
 	<tr><td>@item.ResourceId</td><td>@item.FileName</td><td>@item.Received</td></tr>
 }
 </table>

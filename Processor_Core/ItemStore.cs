@@ -30,12 +30,12 @@ namespace Processor_Core {
 		}
 
 		public IEnumerable<ItemBase> GetUnprocessedList() {
-			return _table.GetUnprocessedItems();
+			return _table.GetUnprocessedItems().ToList();
 		}
 
 		public IEnumerable<ItemBase> GetProcessedList() {
 			// ?
-			return _table.GetProcessedItems();
+			return _table.GetProcessedItems().ToList();
 		}
 
 		public FullItem RetrieveForProcessing() {

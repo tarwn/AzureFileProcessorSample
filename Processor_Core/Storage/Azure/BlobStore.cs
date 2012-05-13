@@ -12,7 +12,7 @@ namespace Processor_Core.Storage.Azure {
 
 		public BlobStore(CloudStorageAccount storageAccount, string blobStoreName) {
 			_storageAccount = storageAccount;
-			_blobStoreName = blobStoreName;
+			_blobStoreName = blobStoreName.ToLower();	// required by blob storage
 		}
 
 		private CloudBlobContainer GetBlobContainer() {

@@ -7,6 +7,7 @@ using Processor_Core;
 using Processor_Core.Storage.Azure;
 using Processor_Core.Storage;
 using Processor_WebRole.Models;
+using System.Configuration;
 
 namespace Processor_WebRole.Controllers {
 	public class HomeController : Controller {
@@ -14,7 +15,7 @@ namespace Processor_WebRole.Controllers {
 		IStorageLocator _storageLocator;
 
 		public HomeController() {
-			_storageLocator = new StorageManager();
+			_storageLocator = new StorageManager(ConfigurationManager.AppSettings["Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString"]);
 		}
 
 		public ActionResult Index() {
@@ -30,7 +31,7 @@ namespace Processor_WebRole.Controllers {
 		}
 
 		[HttpPost]
-		public ActionResult AddFile(HttpPostedFile file) {
+		public ActionResult AddFile(HttpPostedFileBase file) {
 			if (file != null && file.ContentLength > 0) {
 				var item = new FullItem() {
 					ResourceId = Guid.NewGuid(),
