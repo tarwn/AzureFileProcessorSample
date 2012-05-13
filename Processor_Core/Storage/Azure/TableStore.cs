@@ -32,8 +32,16 @@ namespace Processor_Core.Storage.Azure {
 		}
 
 		public void Update(ItemBase item) {
+			// this update actually needs to do a delete and re-add since I made the isprocesed value the partition key
 			TableServiceContext serviceContext = GetContext();
-			serviceContext.UpdateObject(new ItemBaseEntity(item));
+			var entity = serviceContext.CreateQuery<ItemBaseEntity>(_tableName)
+									   .Where(ib => ib.RowKey == item.ResourceId.ToString())
+									   .AsTableServiceQuery()
+									   .FirstOrDefault();
+
+			serviceContext.DeleteObject(entity);
+			serviceContext.AddObject(_tableName, new ItemBaseEntity(item));
+			
 			serviceContext.SaveChangesWithRetries();
 		}
 

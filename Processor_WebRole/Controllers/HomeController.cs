@@ -50,5 +50,17 @@ namespace Processor_WebRole.Controllers {
 
 			return RedirectToAction("Index");
 		}
+
+		[HttpGet]
+		public ActionResult ProcessNextItem() {
+			var store = new ItemStore(_storageLocator);
+			var nextItem = store.RetrieveForProcessing();
+			if (nextItem != null) {
+				var finishedItem = new ItemProcessor().ProcessItem(nextItem);
+				store.StoreFinishedItem(finishedItem);
+			}
+
+			return RedirectToAction("Index");
+		}
 	}
 }
