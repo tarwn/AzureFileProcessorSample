@@ -20,7 +20,7 @@ namespace Processor_Core {
 				result.Add(s2);
 			}
 
-			rawItem.IsProcessed = true;
+			rawItem.MarkAsProcessed();
 			rawItem.File = new UTF8Encoding().GetBytes(String.Join("\n", result));
 			return rawItem;
 		}

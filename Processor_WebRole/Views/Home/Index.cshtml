@@ -31,9 +31,9 @@
 <div class="ItemList">
 <h2>Processed Items</h2>
 <table>
-<tr><th>Id</th><th>Name</th><th>Received</th></tr>
+<tr><th>Id</th><th>Name</th><th>Received</th><th>Processed</th></tr>
 @foreach (var item in Model.ProcessedItems) { 
-	<tr><td>@item.ResourceId</td><td>@item.FileName</td><td>@item.Received</td></tr>
+	<tr><td>@item.ResourceId</td><td>@item.FileName</td><td>@item.Received</td><td>@(item.Processed.HasValue ? item.Processed.Value.ToString() : "N/A")</td></tr>
 }
 </table>
 </div>

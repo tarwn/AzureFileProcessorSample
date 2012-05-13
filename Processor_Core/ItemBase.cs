@@ -11,6 +11,7 @@ namespace Processor_Core {
 		public Guid ResourceId { get; set; }
 		public string FileName { get; set; }
 		public DateTime Received { get; set; }
+		public DateTime? Processed { get; set; }
 		public bool IsProcessed { get; set; }
 
 		public ItemBase() { }
@@ -23,6 +24,7 @@ namespace Processor_Core {
 				ResourceId = item.ResourceId;
 				FileName = item.FileName;
 				Received = item.Received;
+				Processed = item.Processed;
 				IsProcessed = item.IsProcessed;
 		}
 
@@ -31,8 +33,14 @@ namespace Processor_Core {
 				ResourceId = ResourceId,
 				FileName = FileName,
 				Received = Received,
+				Processed = Processed,
 				IsProcessed = IsProcessed
 			};
+		}
+
+		public void MarkAsProcessed() {
+			IsProcessed = true;
+			Processed = DateTime.Now.ToUniversalTime();
 		}
 	}
 }
