@@ -1,9 +1,11 @@
 Azure File Processing Sample
 ==================================
 
-A common pain point in past projects in research , enterprise IT, and SaaS environments has been the last minute "please process 10 days worth of files in 1 day". Inevitably there is a moment when we do the math and realize that no mater how badly we need to hit our deadline, the process just physically won't complete in time.
+A common pain point I've run into in past projects in research, enterprise IT, and SaaS environments has been the last minute "please process 10 days worth of files in 1 day". Inevitably there is a moment when we do the math and realize that no mater how badly we need to hit our deadline, the process just physically won't complete in time. Whether it was processing in large files of transaction data, translating 1.7 million data files to a common set of field names, or any of a dozen other tasks, it just wasn't possible to execute a single process in the time available.
 
-The blog post for this sample is not posted yet.
+So I thought this would be a goo exmaple of using PaaS platforms in many environments to turn a commno pain point into a simple decision of how much money we are willing to spend to buy a sooner finish line.
+
+The blog post for this sample is not posted yet but I'll post it when it is.
 
 Running the Sample Code
 ----------------------------
@@ -15,4 +17,4 @@ Running the sample code locally on your own system has a few requirements:
 * SQL Server
 * ASP.Net MVC 3
 
-You will also ned to configure the compute and storage emulators that come with the Azure SDK: http://msdn.microsoft.com/en-us/library/windowsazure/gg433134.aspx
+You will also need to configure the compute and storage emulators that come with the Azure SDK: http://msdn.microsoft.com/en-us/library/windowsazure/gg433134.aspx
