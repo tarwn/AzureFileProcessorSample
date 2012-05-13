@@ -15,7 +15,7 @@ namespace Processor_WebRole.Controllers {
 		IStorageLocator _storageLocator;
 
 		public HomeController() {
-			_storageLocator = new StorageManager(ConfigurationManager.AppSettings["Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString"]);
+			_storageLocator = new StorageManager("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString");
 		}
 
 		public ActionResult Index() {
@@ -54,11 +54,7 @@ namespace Processor_WebRole.Controllers {
 		[HttpGet]
 		public ActionResult ProcessNextItem() {
 			var store = new ItemStore(_storageLocator);
-			var nextItem = store.RetrieveForProcessing();
-			if (nextItem != null) {
-				var finishedItem = new ItemProcessor().ProcessItem(nextItem);
-				store.StoreFinishedItem(finishedItem);
-			}
+			new ItemProcessor().ProcessNextItem(store);
 
 			return RedirectToAction("Index");
 		}

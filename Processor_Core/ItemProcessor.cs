@@ -25,5 +25,13 @@ namespace Processor_Core {
 			return rawItem;
 		}
 
+		public void ProcessNextItem(ItemStore store) {
+			var nextItem = store.RetrieveForProcessing();
+			if (nextItem != null) {
+				var finishedItem = new ItemProcessor().ProcessItem(nextItem);
+				store.StoreFinishedItem(finishedItem);
+			}
+		}
+
 	}
 }
